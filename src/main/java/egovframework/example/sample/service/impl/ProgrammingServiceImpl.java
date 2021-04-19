@@ -63,6 +63,7 @@ public class ProgrammingServiceImpl extends EgovAbstractServiceImpl implements P
 	@Resource(name = "egovIdGnrService")
 	private EgovIdGnrService egovIdGnrService;
 
+
 	/**
 	 * 글을 등록한다.
 	 * @param vo - 등록할 정보가 담긴 SampleVO
@@ -78,7 +79,7 @@ public class ProgrammingServiceImpl extends EgovAbstractServiceImpl implements P
 		vo.setPno(lastpno);
 		LOGGER.debug(vo.toString());
 
-		ProgrammingDAO.insertProgramming(vo);
+		programmingDAO.insertProgramming(vo);
 		return lastpno;
 	}
 
@@ -90,7 +91,7 @@ public class ProgrammingServiceImpl extends EgovAbstractServiceImpl implements P
 	 */
 	@Override
 	public void updateProgramming(ProgrammingVO vo) throws Exception {
-		ProgrammingDAO.updateProgramming(vo);
+		programmingDAO.updateProgramming(vo);
 	}
 
 	/**
@@ -101,7 +102,7 @@ public class ProgrammingServiceImpl extends EgovAbstractServiceImpl implements P
 	 */
 	@Override
 	public void deleteProgramming(ProgrammingVO vo) throws Exception {
-		ProgrammingDAO.deleteProgramming(vo);
+		programmingDAO.deleteProgramming(vo);
 	}
 
 	/**
@@ -112,7 +113,7 @@ public class ProgrammingServiceImpl extends EgovAbstractServiceImpl implements P
 	 */
 	@Override
 	public ProgrammingVO selectProgramming(ProgrammingVO vo) throws Exception {
-		ProgrammingVO resultVO = ProgrammingDAO.selectProgramming(vo);
+		ProgrammingVO resultVO = programmingDAO.selectProgramming(vo);
 		if (resultVO == null)
 			throw processException("info.nodata.msg");
 		return resultVO;
@@ -126,7 +127,7 @@ public class ProgrammingServiceImpl extends EgovAbstractServiceImpl implements P
 	 */
 	@Override
 	public List<?> selectProgrammingList(ProgrammingVO vo) throws Exception {
-		return ProgrammingDAO.selectProgrammingList(vo);
+		return programmingDAO.selectProgrammingList(vo);
 	}
 
 	/**

@@ -59,7 +59,7 @@ public class ProgrammingDAO extends EgovAbstractDAO {
 	 * @return void형
 	 * @exception Exception
 	 */
-	public void updateSample(ProgrammingVO vo) throws Exception {
+	public void updateProgramming(ProgrammingVO vo) throws Exception {
 		update("programmingDAO.updateProgramming", vo);
 	}
 
@@ -69,7 +69,7 @@ public class ProgrammingDAO extends EgovAbstractDAO {
 	 * @return void형
 	 * @exception Exception
 	 */
-	public void deleteSample(ProgrammingVO vo) throws Exception {
+	public void deleteProgramming(ProgrammingVO vo) throws Exception {
 		delete("programmingDAO.deleteProgramming", vo);
 	}
 
@@ -79,7 +79,7 @@ public class ProgrammingDAO extends EgovAbstractDAO {
 	 * @return 조회한 글
 	 * @exception Exception
 	 */
-	public ProgrammingVO selectSample(ProgrammingVO vo) throws Exception {
+	public ProgrammingVO selectProgramming(ProgrammingVO vo) throws Exception {
 		return (ProgrammingVO) select("programmingDAO.selectProgramming", vo);
 	}
 
@@ -89,7 +89,7 @@ public class ProgrammingDAO extends EgovAbstractDAO {
 	 * @return 글 목록
 	 * @exception Exception
 	 */
-	public List<?> selectSampleList(ProgrammingVO vo) throws Exception {
+	public List<?> selectProgrammingList(ProgrammingVO vo) throws Exception {
 		return list("programmingDAO.selectProgrammingList", vo);
 	}
 
