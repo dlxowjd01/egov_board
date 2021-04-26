@@ -13,8 +13,7 @@
 	<insert id="insertProgramming" parameterType="ProgrammingVO">
 
 			INSERT INTO PROGRAMMING
-				( ID
-				  , PNO
+				(  PNO
 				  , WRITER
 				  , SUBJECT
 				  , CONTENTS 
@@ -35,7 +34,7 @@
 				, SUBJECT=#{description}
 				, CONTENTS=#{useYn}
 				, NOWDATE=#{nowdate}
-				  WHERE ID=#{pno}
+				  WHERE PNO=#{pno}
 
 	</update>
 
@@ -59,8 +58,8 @@
 
 			SELECT
 				PNO, WRITER, SUBJECT, CONTENTS, NOWDATE
-			FROM SAMPLE
-			ORDER BY ID ASC
+			FROM PROGRAMMING
+			ORDER BY PNO ASC
 	</select>
 
 </mapper>

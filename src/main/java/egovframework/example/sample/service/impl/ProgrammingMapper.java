@@ -36,7 +36,7 @@ import egovframework.rte.psl.dataaccess.mapper.Mapper;
  *
  * </pre>
  */
-@Mapper("sampleMapper")
+@Mapper("programmingMapper")
 public interface ProgrammingMapper {
 
 	/**

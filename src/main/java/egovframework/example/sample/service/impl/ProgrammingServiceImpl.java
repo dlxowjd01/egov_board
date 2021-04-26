@@ -53,11 +53,11 @@ public class ProgrammingServiceImpl extends EgovAbstractServiceImpl implements P
 
 	/** SampleDAO */
 	// TODO ibatis 사용
-	@Resource(name = "programmingDAO")
-	private ProgrammingDAO programmingDAO;
+	//@Resource(name = "programmingDAO")
+	//private ProgrammingDAO programmingDAO;
 	// TODO mybatis 사용
-	//  @Resource(name="sampleMapper")
-	//	private SampleMapper sampleDAO;
+	  @Resource(name="programmingMapper")
+	  private ProgrammingMapper programmingDAO;
 
 	/** ID Generation */
 	@Resource(name = "egovIdGnrService")
