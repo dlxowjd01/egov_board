@@ -13,12 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package egovframework.example.sample.service.impl;
+package egovframework.example.sample.dao;
 
 import java.util.List;
 
-import egovframework.example.sample.service.SampleDefaultVO;
-import egovframework.example.sample.service.SampleVO;
+import egovframework.example.sample.service.ProgrammingVO;
 
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
 
@@ -41,8 +40,8 @@ import org.springframework.stereotype.Repository;
  *  Copyright (C) by MOPAS All right reserved.
  */
 
-@Repository("sampleDAO")
-public class SampleDAO extends EgovAbstractDAO {
+@Repository("programmingDAO")
+public class ProgrammingDAO extends EgovAbstractDAO {
 
 	/**
 	 * 글을 등록한다.
@@ -50,8 +49,8 @@ public class SampleDAO extends EgovAbstractDAO {
 	 * @return 등록 결과
 	 * @exception Exception
 	 */
-	public String insertSample(SampleVO vo) throws Exception {
-		return (String) insert("sampleDAO.insertSample", vo);
+	public int insertProgramming(ProgrammingVO vo) throws Exception {
+		return (Integer) insert("programmingDAO.insertProgramming", vo);
 	}
 
 	/**
@@ -60,8 +59,8 @@ public class SampleDAO extends EgovAbstractDAO {
 	 * @return void형
 	 * @exception Exception
 	 */
-	public void updateSample(SampleVO vo) throws Exception {
-		update("sampleDAO.updateSample", vo);
+	public void updateProgramming(ProgrammingVO vo) throws Exception {
+		update("programmingDAO.updateProgramming", vo);
 	}
 
 	/**
@@ -70,8 +69,8 @@ public class SampleDAO extends EgovAbstractDAO {
 	 * @return void형
 	 * @exception Exception
 	 */
-	public void deleteSample(SampleVO vo) throws Exception {
-		delete("sampleDAO.deleteSample", vo);
+	public void deleteProgramming(ProgrammingVO vo) throws Exception {
+		delete("programmingDAO.deleteProgramming", vo);
 	}
 
 	/**
@@ -80,8 +79,8 @@ public class SampleDAO extends EgovAbstractDAO {
 	 * @return 조회한 글
 	 * @exception Exception
 	 */
-	public SampleVO selectSample(SampleVO vo) throws Exception {
-		return (SampleVO) select("sampleDAO.selectSample", vo);
+	public ProgrammingVO selectProgramming(ProgrammingVO vo) throws Exception {
+		return (ProgrammingVO) select("programmingDAO.selectProgramming", vo);
 	}
 
 	/**
@@ -90,9 +89,10 @@ public class SampleDAO extends EgovAbstractDAO {
 	 * @return 글 목록
 	 * @exception Exception
 	 */
-	public List<?> selectSampleList(SampleDefaultVO searchVO) throws Exception {
-		return list("sampleDAO.selectSampleList", searchVO);
+	public List<?> selectProgrammingList(ProgrammingVO vo) throws Exception {
+		return list("programmingDAO.selectProgrammingList", vo);
 	}
+
 
 	/**
 	 * 글 총 갯수를 조회한다.
@@ -100,8 +100,5 @@ public class SampleDAO extends EgovAbstractDAO {
 	 * @return 글 총 갯수
 	 * @exception
 	 */
-	public int selectSampleListTotCnt(SampleDefaultVO searchVO) {
-		return (Integer) select("sampleDAO.selectSampleListTotCnt", searchVO);
-	}
 
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="egovframework.example.sample.service.impl.ProgrammingMapper">
+<mapper namespace="egovframework.example.sample.dao.ProgrammingMapper">
 
 	<resultMap id="programming" type="egovframework.example.sample.service.ProgrammingVO">
 		<result property="pno" column="pno"/>
