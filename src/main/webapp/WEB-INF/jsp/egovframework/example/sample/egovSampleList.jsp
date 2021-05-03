@@ -53,13 +53,13 @@
            	document.listForm.submit();
         }
         
-        -->
+        //-->
     </script>
 </head>
 
 <body style="text-align:center; margin:0 auto; display:inline; padding-top:100px;">
     <form:form commandName="searchVO" id="listForm" name="listForm" method="post">
-        <input type="hidden" name="textPno" />
+        <input type="hidden" name="selectedId" />
         <div id="content_pop">
         	<!-- 타이틀 -->
         	<div id="title">
@@ -102,27 +102,27 @@
         			</colgroup>
         			<tr>
         				<th align="center">No</th>
-        				<th align="center"><spring:message code="title.sample.pno" /></th>
-        				<th align="center"><spring:message code="title.sample.writer" /></th>
-        				<th align="center"><spring:message code="title.sample.subject" /></th>
-        				<th align="center"><spring:message code="title.sample.contents" /></th>
-        				<th align="center"><spring:message code="title.sample.nowdate" /></th>
+        				<th align="center"><spring:message code="title.sample.id" /></th>
+        				<th align="center"><spring:message code="title.sample.name" /></th>
+        				<th align="center"><spring:message code="title.sample.useYn" /></th>
+        				<th align="center"><spring:message code="title.sample.description" /></th>
+        				<th align="center"><spring:message code="title.sample.regUser" /></th>
         			</tr>
         			<c:forEach var="result" items="${resultList}" varStatus="status">
             			<tr>
-<%--             				<td align="center" class="listtd"><c:out value="${paginationInfo.totalRecordCount+1 - ((searchVO.pageIndex-1) * searchVO.pageSize + status.count)}"/></td> --%>
-            				<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.pno}"/>')"><c:out value="${result.pno}"/></a></td>
-            				<td align="left" class="listtd"><c:out value="${result.writer}"/>&nbsp;</td>
-            				<td align="center" class="listtd"><c:out value="${result.subject}"/>&nbsp;</td>
-            				<td align="center" class="listtd"><c:out value="${result.contents}"/>&nbsp;</td>
-            				<td align="center" class="listtd"><c:out value="${result.nowdate}"/>&nbsp;</td>
+            				<td align="center" class="listtd"><c:out value="${paginationInfo.totalRecordCount+1 - ((searchVO.pageIndex-1) * searchVO.pageSize + status.count)}"/></td>
+            				<td align="center" class="listtd"><a href="javascript:fn_egov_select('<c:out value="${result.id}"/>')"><c:out value="${result.id}"/></a></td>
+            				<td align="left" class="listtd"><c:out value="${result.name}"/>&nbsp;</td>
+            				<td align="center" class="listtd"><c:out value="${result.useYn}"/>&nbsp;</td>
+            				<td align="center" class="listtd"><c:out value="${result.description}"/>&nbsp;</td>
+            				<td align="center" class="listtd"><c:out value="${result.regUser}"/>&nbsp;</td>
             			</tr>
         			</c:forEach>
         		</table>
         	</div>
         	<!-- /List -->
         	<div id="paging">
-<%--         		<ui:pagination paginationInfo = "${paginationInfo}" type="image" jsFunction="fn_egov_link_page" /> --%>
+        		<ui:pagination paginationInfo = "${paginationInfo}" type="image" jsFunction="fn_egov_link_page" />
         		<form:hidden path="pageIndex" />
         	</div>
         	<div id="sysbtn">

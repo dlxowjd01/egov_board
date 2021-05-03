@@ -17,8 +17,9 @@ package egovframework.example.sample.service.impl;
 
 import java.util.List;
 
-import egovframework.example.sample.service.ProgrammingService;
-import egovframework.example.sample.service.ProgrammingVO;
+import egovframework.example.sample.service.EgovSampleService;
+import egovframework.example.sample.service.SampleDefaultVO;
+import egovframework.example.sample.service.SampleVO;
 
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 import egovframework.rte.fdl.idgnr.EgovIdGnrService;
@@ -46,15 +47,15 @@ import org.springframework.stereotype.Service;
  *  Copyright (C) by MOPAS All right reserved.
  */
 
-@Service("programmingService")
-public class ProgrammingServiceImpl extends EgovAbstractServiceImpl implements ProgrammingService {
+@Service("sampleService")
+public class EgovSampleServiceImpl extends EgovAbstractServiceImpl implements EgovSampleService {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ProgrammingServiceImpl.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(EgovSampleServiceImpl.class);
 
 	/** SampleDAO */
 	// TODO ibatis 사용
-	@Resource(name = "programmingDAO")
-	private ProgrammingDAO programmingDAO;
+	@Resource(name = "sampleDAO")
+	private SampleDAO sampleDAO;
 	// TODO mybatis 사용
 	//  @Resource(name="sampleMapper")
 	//	private SampleMapper sampleDAO;
@@ -70,16 +71,16 @@ public class ProgrammingServiceImpl extends EgovAbstractServiceImpl implements P
 	 * @exception Exception
 	 */
 	@Override
-	public int insertProgramming(ProgrammingVO vo) throws Exception {
+	public String insertSample(SampleVO vo) throws Exception {
 		LOGGER.debug(vo.toString());
 
 		/** ID Generation Service */
-		int lastpno = vo.getPno()+1;
-		vo.setPno(lastpno);
+		String id = egovIdGnrService.getNextStringId();
+		vo.setId(id);
 		LOGGER.debug(vo.toString());
 
-		ProgrammingDAO.insertProgramming(vo);
-		return lastpno;
+		sampleDAO.insertSample(vo);
+		return id;
 	}
 
 	/**
@@ -89,8 +90,8 @@ public class ProgrammingServiceImpl extends EgovAbstractServiceImpl implements P
 	 * @exception Exception
 	 */
 	@Override
-	public void updateProgramming(ProgrammingVO vo) throws Exception {
-		ProgrammingDAO.updateProgramming(vo);
+	public void updateSample(SampleVO vo) throws Exception {
+		sampleDAO.updateSample(vo);
 	}
 
 	/**
@@ -100,8 +101,8 @@ public class ProgrammingServiceImpl extends EgovAbstractServiceImpl implements P
 	 * @exception Exception
 	 */
 	@Override
-	public void deleteProgramming(ProgrammingVO vo) throws Exception {
-		ProgrammingDAO.deleteProgramming(vo);
+	public void deleteSample(SampleVO vo) throws Exception {
+		sampleDAO.deleteSample(vo);
 	}
 
 	/**
@@ -111,8 +112,8 @@ public class ProgrammingServiceImpl extends EgovAbstractServiceImpl implements P
 	 * @exception Exception
 	 */
 	@Override
-	public ProgrammingVO selectProgramming(ProgrammingVO vo) throws Exception {
-		ProgrammingVO resultVO = ProgrammingDAO.selectProgramming(vo);
+	public SampleVO selectSample(SampleVO vo) throws Exception {
+		SampleVO resultVO = sampleDAO.selectSample(vo);
 		if (resultVO == null)
 			throw processException("info.nodata.msg");
 		return resultVO;
@@ -125,8 +126,8 @@ public class ProgrammingServiceImpl extends EgovAbstractServiceImpl implements P
 	 * @exception Exception
 	 */
 	@Override
-	public List<?> selectProgrammingList(ProgrammingVO vo) throws Exception {
-		return ProgrammingDAO.selectProgrammingList(vo);
+	public List<?> selectSampleList(SampleDefaultVO searchVO) throws Exception {
+		return sampleDAO.selectSampleList(searchVO);
 	}
 
 	/**
@@ -135,6 +136,9 @@ public class ProgrammingServiceImpl extends EgovAbstractServiceImpl implements P
 	 * @return 글 총 갯수
 	 * @exception
 	 */
-
+	@Override
+	public int selectSampleListTotCnt(SampleDefaultVO searchVO) {
+		return sampleDAO.selectSampleListTotCnt(searchVO);
+	}
 
 }
